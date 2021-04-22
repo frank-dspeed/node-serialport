@@ -81,7 +81,7 @@ The in progress reads must error when the port is closed with an error object th
    * @rejects {TypeError} When given invalid arguments, a `TypeError` is rejected.
    */
   async read(buffer, offset, length) {
-    if (!Buffer.isBuffer(buffer)) {
+    if (!(buffer instanceof Uint8Array)) {
       throw new TypeError('"buffer" is not a Buffer')
     }
 
@@ -113,7 +113,7 @@ The in progress writes must error when the port is closed with an error object t
    * @rejects {TypeError} When given invalid arguments, a `TypeError` is rejected.
    */
   async write(buffer) {
-    if (!Buffer.isBuffer(buffer)) {
+    if (!(buffer instanceof Uint8Array)) {
       throw new TypeError('"buffer" is not a Buffer')
     }
 
